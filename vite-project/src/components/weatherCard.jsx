@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import { Card, Icon, Image } from "semantic-ui-react";
 import WeatherDateDisplay from "./DateDisplay";
 import { useState } from "react";
 
 const WeatherCard = ({ data }) => {
-  const { name, main, weather, sys, dt } = data;
+  const [ name, main, weather, sys, dt ] = data;
   const [isHovered, setIsHovered] = useState(false);
 
   const iconUrl = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
@@ -50,6 +51,10 @@ const WeatherCard = ({ data }) => {
     </Card>
         
   );
+}
+
+WeatherCard.propTypes = {
+  data: PropTypes.string.isRequired
 }
 
 export default WeatherCard
