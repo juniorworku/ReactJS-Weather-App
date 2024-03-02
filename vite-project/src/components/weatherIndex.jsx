@@ -2,7 +2,8 @@ import { useState, useEffect} from 'react'
 import { Card, Icon } from "semantic-ui-react";
 import axios from "axios";
 import cloudy from "../Assets/cloudy.png";
-import DateDisplay from "./DateDisplay";
+import WeatherDateDisplay from './weatherDateDisplay';
+import WeatherCard from './weatherCard';
 
 function WeatherIndex (){
     const megaCities =[
@@ -67,6 +68,43 @@ function WeatherIndex (){
                     <button onClick={fetchWeather}>Get Weather</button>  
                     <button onClick={handleClear}>Clear</button>                  
                 </div>
+
+            </div>
+
+            {weather && (
+                <Card>
+                    <Card.Content>
+                        <Card.Header>
+                            <img src={weather.iconUrl} alt="" />
+                            <p>
+                                {weather.name},{weather.sys.country}
+                            </p>
+                        </Card.Header>
+                        <Card.Meta>
+                            <p>
+                                <WeatherDateDisplay timestamp={weather.dt} />
+                            </p>
+                        </Card.Meta>
+                        <Card.Description>
+                            <p>
+                            {weather.weather[0].main} - {weather.weather[0].description}
+                            </p>
+                        </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                        <p>
+                            <Icon name="thermometer" />
+                            {weather.main.temp - 273.15} &deg;C
+                        </p>
+                    </Card.Content>
+                </Card>
+            )}
+            {error && <p>{error}</p>}
+
+            <div className='mega-cities-container'>
+                {megaCitiesWeather.map((data) =>(
+                    <WeatherCard key={data.id} data={data}  />
+                ))}
 
             </div>
             
