@@ -15,7 +15,7 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-.major-cities-container {
+.mega-cities-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -24,7 +24,7 @@ body {
   margin: 0 2em;
 }
 
-.major-city-card {
+.mega-city-card {
   color: white;
 }
 
@@ -39,7 +39,7 @@ body {
   color: white;
 }
 
-.major-city-image {
+.mega-city-image {
   width: 50px;
 }
 
