@@ -16,21 +16,22 @@ function WeatherIndex (){
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState(null);
-    const API_KEY = import.meta.env.VITE_API_KEY;
+    const API_KEY = import.meta.env.REACT_APP_API_KEY;
 
     useEffect(() => {
         const FeatchingMegaCities = async () => {
-            const promises = megaCities.map((city) => {
+            const promises = megaCities.map(async (city) => {
                 const url = `https://http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`;
 
-                return fetch(url).then((res) => res.json());
+                const res = await fetch(url);
+                return await res.json();
             });
             const results = await Promise.all(promises);
             setMegaCitiesWeather(results)
         };
         FeatchingMegaCities();
         
-    },[])
+    }, []);
 
     const fetchWeather = async () => {
         try {

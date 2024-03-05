@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Card, Icon, Image } from "semantic-ui-react";
-import WeatherDateDisplay from "./DateDisplay";
+import WeatherDateDisplay from "./weatherDateDisplay";
 import { useState } from "react";
 
 const WeatherCard = ({ data }) => {
