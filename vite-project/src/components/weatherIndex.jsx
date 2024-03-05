@@ -10,6 +10,7 @@ function WeatherIndex (){
         "London",
         "New Work",
         "Paris",
+        "Tokiyo",
         "Dubai"
     ];
     const [megaCitiesWeather, setMegaCitiesWeather] = useState([]);
